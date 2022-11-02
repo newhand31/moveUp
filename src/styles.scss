@@ -1,1 +1,48 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$crypto-price-tracker-primary: mat.define-palette(mat.$indigo-palette);
+$crypto-price-tracker-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$crypto-price-tracker-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+// 創建主題對象。 主題由個人的配置組成
+// 主題系統，例如“顏色”或“排版”。
+$crypto-price-tracker-theme: mat.define-dark-theme((
+  color: (
+    primary: $crypto-price-tracker-primary,
+    accent: $crypto-price-tracker-accent,
+    warn: $crypto-price-tracker-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// 包括應用程序中使用的核心和每個組件的主題樣式。
+// 或者，您可以為每個組件導入並@include 主題混合
+// 你正在使用的。
+@include mat.all-component-themes($crypto-price-tracker-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #212121;}
