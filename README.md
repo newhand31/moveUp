@@ -1,5 +1,9 @@
 # MoveUp
 
+- angular 專案
+- 功能:
+  1. Leetcode 複習管理
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
 ## Development server

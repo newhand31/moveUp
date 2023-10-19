@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>新增</h1>
+<div mat-dialog-content>
+    <form [formGroup]="leetcodeForm">
+        <p><mat-form-field appearance="outline">
+                <mat-label>題號</mat-label>
+                <input formControlName="index" matInput type="number" min="1" placeholder="1">
+            </mat-form-field></p>
+        <p><mat-form-field appearance="outline">
+                <mat-label>題目名稱</mat-label>
+                <input formControlName="title" matInput placeholder="輸入名稱">
+            </mat-form-field></p>
+        <p><mat-form-field appearance="outline">
+                <mat-select formControlName="difficulty" required>
+                    <mat-option value="Easy">Easy</mat-option>
+                    <mat-option value="Medium">Medium</mat-option>
+                    <mat-option value="Hard">Hard</mat-option>
+                </mat-select>
+                <mat-label>難度</mat-label>
+            </mat-form-field></p>
+        <p><mat-form-field appearance="outline">
+                <input formControlName="url" matInput placeholder="輸入連結">
+                <mat-label>連結</mat-label>
+            </mat-form-field></p>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button class="m-1" mat-raised-button color="warn" mat-dialog-close>關閉</button>
+    <button class="m-1" mat-raised-button color="primary" mat-dialog-close (click)="save()">儲存</button>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <table class="table table-primary table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">名稱</th>
+                <th scope="col">URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.url}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

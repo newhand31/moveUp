@@ -16,6 +16,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+
+
 
 //圖表
 // import { NgChartsModule } from 'ng2-charts';
@@ -23,11 +29,32 @@ import { MatIconModule } from '@angular/material/icon';
 
 //GitHub的router不然會404
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+
+//firebase
+import { AngularFireModule } from '@angular/fire/compat'
+import { environment } from 'src/environments/environment';
+import { NewsComponent } from './components/news/news.component';
+import { LeetcodeComponent } from './components/leetcode/leetcode.component';
+import { LeetcodeDialogComponent } from './components/leetcode-dialog/leetcode-dialog.component';
+import { AutoShareComponent } from './components/auto-share/auto-share.component';
+import { LearnComponent } from './components/learn/learn.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    DashboardComponent,
+    NewsComponent,
+    LeetcodeComponent,
+    LeetcodeDialogComponent,
+    AutoShareComponent,
+    LearnComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +62,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
     // material模組
     MatToolbarModule,
@@ -47,8 +75,17 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatDividerModule,
     MatIconModule,
-
+    MatCardModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatListModule,
     // NgChartsModule,
+
+    //firebase
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }

@@ -1,11 +1,14 @@
 <!-- 工具列 -->
-<mat-toolbar>
+<mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon class="mat-18" (click)="this.sideNav.open()" *ngIf="!sideNav?.opened">menu</mat-icon>
     <mat-icon class="mat-18" (click)="this.sideNav.close()" *ngIf="sideNav?.opened">close</mat-icon>
   </button>
   <a href=""><span>MoveUp</span></a>
   <span class="example-spacer"></span>
+  <a href="#/login"><button mat-raised-button color="primary">
+      <span>登入</span>
+    </button></a>
   <!-- appearance="outline"可變更樣式>https://material.angular.io/components/form-field/overview -->
   <!-- <mat-form-field appearance="outline"> -->
 
@@ -14,19 +17,35 @@
 <!-- Side Bar 側邊攔 -->
 <mat-sidenav-container>
   <mat-sidenav #sideNav="matSidenav">
+
     <a href="https://www.youtube.com/channel/UCcwT1FrifMVC1hYD4_I13dg">
       <img src="assets/image/SM5.png" alt="123" class="avatar mat-elavation-z8 circleImg" />
     </a>
 
-    <!-- <h4>Side Bar</h4> -->
-    <mat-divider></mat-divider>
-    <a href="#/news-list"><button mat-raised-button color="primary">
-        <span>連結1</span>
-      </button></a>
+    <mat-nav-list role="navigation" class="mat-mdc-nav-list mat-mdc-list-base mdc-list ng-tns-c163-54">
+      <a mat-list-item href="#/leetcode">
+        <span>Leetcode</span>
+      </a>
+      <a mat-list-item href="#/autoShare">
+        <span>自動分享</span>
+      </a>
+      <a mat-list-item href="#/learn">
+        <span>學習</span>
+      </a>
+      <a mat-list-item href="#/dashboard">
+        <span>桌面</span>
+      </a>
+      <a mat-list-item href="#/news">
+        <span>文章</span>
+      </a>
+    </mat-nav-list>
+
   </mat-sidenav>
   <!-- 內容區 -->
   <mat-sidenav-content class="content mat-elevation-z4">
-    <router-outlet></router-outlet>
+    <div class="outer">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
   <!-- 內容區 END-->
 
