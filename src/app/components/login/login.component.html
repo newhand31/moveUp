@@ -1,0 +1,79 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">登入</h3>
+                    </div>
+                    <!-- 登入表單 -->
+                    <div class="panel-body p-3">
+                        <form [formGroup]="loginForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="username" type="text" placeholder="使用者名稱">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+                                class="text-danger">*使用者名稱不能空白</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="使用者密碼">
+                                    <!-- 顯示密碼 -->
+                                    <span (click)="hideShowPassword()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+                                class="text-danger">*使用者密碼不能空白</small>
+                            <div class=" form-inline fr mt-4">
+                                <a id="forget" href="" class="font-weight-bold">忘記密碼?</a>
+                            </div>
+                            <!-- 按鈕在未驗證成功時，不能按範例 -->
+                            <!-- <button [disabled]="loginForm.invalid" type="submit"
+                                class="btn btn-primary btn-block mt-4 w-100">登入</button> -->
+                            <!-- 按鈕在未驗證成功時，不能按範例END -->
+
+                            <!-- 自訂後端登入 -->
+                            <button (click)="onLogin()" type="submit"
+                                class="btn btn-primary btn-block mt-4 w-100">登入</button>
+                            <div class="text-center pt-4 text-muted"><a id="forget" routerLink="/signup">註冊帳號</a></div>
+                            <!-- 自訂後端登入 -->
+
+                            <!-- firebase登入 -->
+                            <!-- <button (click)="firebaseLogin()" type="submit"
+                                class="btn btn-primary btn-block mt-4 w-100">登入</button>
+                            <div class="text-center pt-4 text-muted"><a id="forget" routerLink="/signup">註冊帳號</a></div> -->
+                            <!-- firebase登入END -->
+
+                        </form>
+                    </div>
+                    <!-- 登入表單END -->
+                    <div class="mx-3 my-2 py-2 border-t">
+                        <div class="row text-center py-3">
+                            <div class="col ">
+                                <a href="https://www.facebook.com/" target="_blank" class="px-2"><img
+                                        src="https://img.icons8.com/fluency/48/000000/facebook-new.png" />
+
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="https://www.google.com.tw/" target="_blank" class="px-2"><img
+                                        src="https://img.icons8.com/color/48/000000/google-logo.png" /></a>
+                            </div>
+                            <div class="col">
+                                <a href="https://github.com/" target="_blank" class="px-2"><img
+                                        src="https://img.icons8.com/ios-filled/50/000000/github.png" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
